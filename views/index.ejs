@@ -13,15 +13,19 @@
         </li>
       <% } %>
     </ul>
-    <button id="update">Finished this todo</button>
+    <br>
     <br>
     <form action="/todos" method="POST">
       <input type="text" placeholder="todo" name="todo">
       <button type="submit">Submit</button>
     </form>
-
-    <script type="text/javascript" src="main.js">
-
-    </script>
+    <br>
+    <br>
+    <div>
+      <h2>Replace last todo written with a complete!</h2>
+      <button id="update">Complete</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
