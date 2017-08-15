@@ -18,7 +18,11 @@ MongoClient.connect('mongodb://adidafhe10:eRad60165@node-list-app-shard-00-00-kk
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+  db.collection('todos').find().toArray((err, result) => {
+    if(err) return console.log(err)
+
+    res.render('index.ejs', {todos: result})
+  })
 })
 
 app.post('/todos', (req, res) => {
