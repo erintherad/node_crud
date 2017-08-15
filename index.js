@@ -51,4 +51,12 @@ app.put('/todos', (req, res) => {
     if (err) return res.send(err)
     res.send(result)
   })
+
+  app.delete('/todos', (req, res) => {
+    db.collection('todos').findOneAndDelete({todo: req.body.todo},
+    (err, result) => {
+      if (err) return res.send(500, err)
+      res.send({message: 'A todo got deleted'})
+    })
+  })
 })

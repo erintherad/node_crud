@@ -10,11 +10,14 @@
       <% for(var i=0; i<todos.length; i++) {%>
         <li class="todo">
           <span><%= todos[i].todo %></span>
+          <button id="update">Complete</button>
+          <button id="delete">Delete</button>
         </li>
       <% } %>
     </ul>
     <br>
     <br>
+    <h2>Create a new todo</h2>
     <form action="/todos" method="POST">
       <input type="text" placeholder="todo" name="todo">
       <button type="submit">Submit</button>
@@ -24,6 +27,10 @@
     <div>
       <h2>Replace last todo written with a complete!</h2>
       <button id="update">Complete</button>
+    </div>
+    <div>
+      <h2>Delete todo</h2>
+      <button id="delete">Delete</button>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="main.js"></script>
