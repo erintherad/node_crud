@@ -1,5 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+
+// Middleware that changes the request or response object before they get handled by the app.
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
