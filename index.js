@@ -4,7 +4,8 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient
 var db;
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+app.use(express.statis('public'))
 
 MongoClient.connect('mongodb://adidafhe10:eRad60165@node-list-app-shard-00-00-kk3sc.mongodb.net:27017,node-list-app-shard-00-01-kk3sc.mongodb.net:27017,node-list-app-shard-00-02-kk3sc.mongodb.net:27017/node-list-app?ssl=true&replicaSet=node-list-app-shard-0&authSource=admin', (err, database) => {
   if(err) return console.log(err)
