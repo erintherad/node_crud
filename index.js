@@ -2,8 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient
-
 var db;
+
+app.set('view engine', 'ejs')
 
 MongoClient.connect('mongodb://adidafhe10:eRad60165@node-list-app-shard-00-00-kk3sc.mongodb.net:27017,node-list-app-shard-00-01-kk3sc.mongodb.net:27017,node-list-app-shard-00-02-kk3sc.mongodb.net:27017/node-list-app?ssl=true&replicaSet=node-list-app-shard-0&authSource=admin', (err, database) => {
   if(err) return console.log(err)
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 app.post('/todos', (req, res) => {
   db.collection('todos').save(req.body, (err, result) => {
     if(err) return console.log(err)
-    
+
     console.log('saved to database')
     res.redirect('/')
   })
